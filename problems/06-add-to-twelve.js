@@ -14,9 +14,19 @@ addToTwelve([1]); // false
 
 
 function addToTwelve(arr) {
-  // Your code here 
-}
+  // debugger
+  if (arr.length < 2) return false;
 
+  if(arr[arr.length - 1] + arr[arr.length - 2] === 12) return true;
+    arr.pop();
+    return addToTwelve(arr);
+};
+
+console.log(addToTwelve([1, 3, 4, 7, 5])); // true
+console.log(addToTwelve([1, 3, 4, 7, 6])); // false
+console.log(addToTwelve([1, 11, 4, 7, 6])); // true
+console.log(addToTwelve([1, 12, 4, 7, 6])); // false
+console.log(addToTwelve([1])); // false
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
