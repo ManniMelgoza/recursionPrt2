@@ -20,27 +20,40 @@ exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
 
+// function exponent(num, power) {
+//     if (power === 1) return num;
+//     if (power === -1) return 1 / num;
+
+//     if (power > 0) {
+//         power--;
+//         return num * exponent(num, power)
+//     }
+
+//     if (power < 0) {
+
+//         return 1 / num * exponent(num, power + 1)
+//     }
+
+
 function exponent(num, power) {
-    if (power === 1) return num;
-    if (power === -1) return 1 / num;
-
-    if (power > 0) {
-        power--;
-        return num * exponent(num, power)
-    }
-
+    //!!START
     if (power < 0) {
-
-        return 1 / num * exponent(num, power + 1)
+        return (1 / exponent(num, Math.abs(power)));
     }
 
+    if (power === 1) {
+        return num
+    }
 
+    return num * exponent(num, power - 1);
+    //!!END
 }
+// }
 
 debugger
-console.log(exponent(3, 2)); // 9
-console.log(exponent(2, -6)); // 1/4 (or 0.25)
-console.log(exponent(5, 5)); // 3125
+// console.log(exponent(3, 2)); // 9
+console.log(exponent(2, -2)); // 1/4 (or 0.25)
+// console.log(exponent(5, 5)); // 3125
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
